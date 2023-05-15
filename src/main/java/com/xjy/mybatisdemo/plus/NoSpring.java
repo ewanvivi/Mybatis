@@ -19,7 +19,7 @@ import com.baomidou.mybatisplus.core.MybatisSqlSessionFactoryBuilder;
 
 public class NoSpring {
 
-    private static SqlSessionFactory sqlSessionFactory = initSqlSessionFactory();
+    private static final SqlSessionFactory sqlSessionFactory = initSqlSessionFactory();
 
     public static void main(String[] args) {
 
