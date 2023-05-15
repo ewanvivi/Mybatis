@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+<!--        <setting name="cacheEnabled" value="false"/>-->
+<!--        <setting name="useActualParamName" value="false"/>-->
+    </settings>
+
+
+<!--    <typeHandlers>-->
+<!--        <typeHandler jdbcType="ARRAY" javaType="User" handler="User"/>-->
+<!--    </typeHandlers>-->
+
+<!--    <plugins>-->
+<!--        <plugin interceptor="com.xjy.mybatisdemo.mybatis.TestPlugin">-->
+<!--            <property name="dbName" value="mysql"/>-->
+<!--            <property name="dialect.oracle" value="com.xjy.mybatisdemo.mybatis.Oracle"/>-->
+<!--            <property name="dialect.mysql" value="com.xjy.mybatisdemo.mybatis.Mysql"/>-->
+<!--        </plugin>-->
+<!--    </plugins>-->
+
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--                <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC"/>-->
+<!--                <property name="username" value="root"/>-->
+<!--                <property name="password" value="123456"/>-->
+<!--            </dataSource>-->
+        </environment>
+
+        <environment id="qa">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+
+
+    <mappers>
+        <mapper resource="com/xjy/mybatisdemo/UserCacheMapper.xml"/>
+        <mapper resource="com/xjy/mybatisdemo/UserMapper.xml"/>
+    </mappers>
+
+
+</configuration>

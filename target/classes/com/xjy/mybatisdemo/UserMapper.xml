@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjy.mybatisdemo.mybatis.UserMapper">
+
+<!--    <cache-ref namespace="com.xjy.mybatisdemo.mybatis.UserCacheMapper"/>-->
+
+<!--    <resultMap id="userMap" type="com.xjy.mybatisdemo.mybatis.pojo.User">-->
+<!--&lt;!&ndash;        <constructor>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;           <idArg  column="id" javaType="Integer" select="selectA"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;            <idArg  column="id" javaType="Integer"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            <arg column="name" javaType="String"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </constructor>&ndash;&gt;-->
+<!--&lt;!&ndash;        <id column="id" jdbcType="BIGINT" property="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <result column="name" jdbcType="VARCHAR" property="name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <association  property="test" column="name"  />&ndash;&gt;-->
+<!--        <association foreignColumn="test" resultSet="test" property="test" column="name" />-->
+<!--&lt;!&ndash;        <collection property="consumers" ofType="com.xjy.mybatisdemo.mybatis.pojo.Consumer">&ndash;&gt;-->
+<!--&lt;!&ndash;            <id column="consumerId" jdbcType="BIGINT" property="id"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            <result column="consumerName" jdbcType="VARCHAR" property="name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </collection>&ndash;&gt;-->
+<!--    </resultMap>-->
+
+
+
+
+<!--&lt;!&ndash;&lt;!&ndash;    <select id="selectAll" resultMap="userMap,providerMap">      这就是多结果集  resultMap多个&ndash;&gt;&ndash;&gt;-->
+<!--    <select id="selectAll" resultMap="userMap">-->
+<!--        select a.id,a.name,b.id providerId,b.name providerName,-->
+<!--               c.id consumerId,-->
+<!--               c.name consumerName-->
+<!--        from user a join provider b  on a.id = b.id join consumer c on a.id = c.user_id order by a.id-->
+<!--    </select>-->
+
+<!--    <select id="selectA" resultType="int">-->
+<!--        select id from user where id = #{id}-->
+<!--    </select>-->
+
+
+<!--        <select id="findTemp" parameterType="string" resultType="string">-->
+<!--            SELECT result FROM temp WHERE name = #{name}-->
+<!--          </select>-->
+
+
+    <!--            <resultMap id="providerMap" type="com.xjy.mybatisdemo.mybatis.pojo.Provider">-->
+    <!--                <id column="providerId" jdbcType="BIGINT" property="id"/>-->
+    <!--                <result column="providerName" jdbcType="VARCHAR" property="name"/>-->
+    <!--            </resultMap>-->
+
+<!--        <select id="selectOne" resultMap="userMap">-->
+<!--            select * FROM user where id = #{id} and name =#{name}-->
+<!--        </select>-->
+
+        <select id="selectOne"  resultType="com.xjy.mybatisdemo.mybatis.pojo.User">
+            select * FROM user where id = #{id} and name =#{name}
+        </select>
+
+    <select id="list" resultType="com.xjy.mybatisdemo.mybatis.pojo.User">
+        select * FROM user
+    </select>
+
+
+    <!--    <select id="selectOneByTableName" resultType="com.xjy.mybatisdemo.mybatis.pojo.User">-->
+<!--        select * from ${tableName} where id = ${integer}-->
+<!--    </select>-->
+
+<!--    <sql id="testSelect">-->
+<!--        from ${tablename}-->
+<!--    </sql>-->
+
+    <!--    <select id="selectTemp" resultType="com.xjy.mybatisdemo.mybatis.pojo.Temp">-->
+<!--        select * from temp-->
+<!--    </select>-->
+
+
+
+<!--    <select id="selectAll" resultMap="userMap">-->
+<!--        select a.id, a.name, b.id providerId, b.name providerName, c.id consumerId, c.name consumerName-->
+<!--        from user a-->
+<!--                 join provider b on a.id = b.id-->
+<!--                 join consumer c on a.id = c.user_id-->
+<!--        order by a.id-->
+<!--    </select>-->
+
+<!--    <resultMap id="userConstructor" type="User">-->
+<!--        <constructor>-->
+<!--            <idArg column="id" javaType="Integer"/>-->
+<!--            <arg column="name" javaType="String" select="findTemp"/>-->
+<!--        </constructor>-->
+<!--    </resultMap>-->
+
+<!--    <select id="selectByConstructor" resultMap="userConstructor">-->
+<!--        select * from user-->
+<!--    </select>-->
+
+
+
+
+
+
+<!--    <select id="selectByCursor" resultType="User">-->
+<!--        select * from user-->
+<!--    </select>-->
+
+<!--    <insert id="insertUser" parameterType="com.xjy.mybatisdemo.mybatis.pojo.User" useGeneratedKeys="true" keyProperty="id">-->
+<!--        insert into user(name) values(#{name})-->
+<!--    </insert>-->
+
+
+<!--    <select id="selectAAA" >-->
+<!--        SELECT result FROM temp WHERE name = '11'-->
+<!--    </select>-->
+
+<!--    <select id="selectBBB" resultType="string">-->
+<!--        SELECT result FROM temp WHERE name = '11'-->
+<!--    </select>-->
+
+
+
+<!--    <select id="listByPage" resultType="User">-->
+<!--        select * FROM user limit #{pageNum},#{pageSize}-->
+<!--    </select>-->
+
+
+<!--    <sql id="asdljk">-->
+<!--        select * FROM user-->
+<!--    </sql>-->
+
+<!--    <update id="update">-->
+<!--        update user set name = '123'-->
+<!--    </update>-->
+
+</mapper>

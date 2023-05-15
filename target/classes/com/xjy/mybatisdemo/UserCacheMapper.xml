@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjy.mybatisdemo.mybatis.UserCacheMapper">
+
+        <cache type="org.apache.ibatis.cache.impl.PerpetualCache" >
+            <property name="memoryStoreEvictionPolicy" value="LRU"/>
+        </cache>
+
+    <select id="selectOne" resultType="com.xjy.mybatisdemo.mybatis.pojo.User">
+        select * FROM user where id = #{id} and name =#{name}
+    </select>
+
+
+</mapper>
